@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 const crypto = require('crypto');
-const { truncate } = require('fs');
 
 //User Schema
 const userScheama = new mongoose.Schema({
