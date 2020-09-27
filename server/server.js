@@ -2,11 +2,16 @@ const express = require('express');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const connectDB = require('./config/db');
 
 require('dotenv').config({ path: './config/config.env' })
 
 //User bodyparser
 const app = express();
+
+//connect to database
+connectDB()
+
 app.use(bodyParser.json())
 
 if (process.env.NODE_ENV === 'development') {
