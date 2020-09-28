@@ -2,45 +2,50 @@ const mongoose = require('mongoose');
 const crypto = require('crypto');
 
 //User Schema
-const userScheama = new mongoose.Schema({
-    email: {
-        type: String,
-        trim: true,
-        required: true,
-        unique: true,
-        lowercase: true
+const userScheama = new mongoose.Schema(
+    {
+        email: {
+            type: String,
+            trim: true,
+            required: true,
+            unique: true,
+            lowercase: true
+        },
+        name: {
+            type: String,
+            trim: true,
+            required: true
+        },
+        hashed_password: {
+            type: String,
+            required: true
+        },
+        salt: String,
+        role: {
+            type: String,
+            default: 'subscriber'
+        },
+        resetPasswordLink: {
+            data: String,
+            default: ''
+        }
     },
-    name: {
-        type: String,
-        trim: true,
-        required: true
-    },
-    hased_password: {
-        type: String,
-        required: true
-    },
-    salt: String,
-    role: {
-        type: String,
-        default: 'Normal'
-    },
-    resetPasswordLink: {
-        data: String,
-        default: ''
+    {
+        timestamps: true
     }
-},
-    { timeStamp: true })
+);
 
 //Virtual Password
-userScheama.virtual('password')
+userScheama
+    .virtual('password')
     .set(function (password) {
-        this.password = password
-        this.salt = this.makeSalt()
-        this.hased_password = this.encyptPassword(password)
+        this._password = password;
+        this.salt = this.makeSalt();
+        this.hashed_password = this.encryptPassword(password);
     })
     .get(function () {
-        return this._password
-    })
+        return this._password;
+    });
 
 userScheama.methods = {
     //Compare password between plain get from user and hased

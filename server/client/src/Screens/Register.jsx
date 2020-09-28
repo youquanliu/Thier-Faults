@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import authSvg from '../assests/auth.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { authenticate, isAuth } from '../helpers/auth';
@@ -24,7 +23,7 @@ const Register = () => {
         if (name && email && password1) {
             if (password1 === password2) {
                 axios.post(`${process.env.REACT_APP_API_URL}/register`, {
-                    name, email, password: password1
+                    name, email, password: password1,
                 }).then(res => {
                     setFormData({
                         ...formData,
