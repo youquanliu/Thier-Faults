@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { authenticate, isAuth } from '../helpers/auth';
 import { Link, Redirect } from 'react-router-dom';
+import { GoogleLogin } from 'react-google-login';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -75,7 +76,7 @@ const Register = () => {
                             Sign in with email or Google
                         </div>
                         <div>
-                            <a href="/">Sign In</a>
+                            <a href="/login">Sign In</a>
                         </div>
                     </form>
                 </div>
