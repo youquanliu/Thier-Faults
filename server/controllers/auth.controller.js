@@ -8,14 +8,15 @@ const jwt = require('jsonwebtoken');
 
 //Custom error handler to get userful error from database errors
 const { errorHandler } = require('../helper/dbErrorHandling');
+
 const sgMail = require('@sendgrid/mail');
 
 sgMail.setApiKey(process.env.MAIL_KEY);
 
 exports.registerController = (req, res) => {
-    const { name, email, password } = req.body
-    console.log(name, email, password);
+    const { name, email, password } = req.body;
     const errors = validationResult(req);
+    console.log(name, email, password);
 
     //Validation to req,body
     if (!errors.isEmpty()) {
@@ -30,9 +31,9 @@ exports.registerController = (req, res) => {
             if (user) {
                 return res.status(400).json({
                     errors: "Email is taken"
-                })
+                });
             }
-        })
+        });
 
         //GenerateToken
         const token = jwt.sign(

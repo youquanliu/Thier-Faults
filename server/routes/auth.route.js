@@ -11,8 +11,6 @@ const {
 const {
     validRegister,
     validLogin,
-    forgotPasswordValidator,
-    resetPasswordValidator
 } = require('../helper/valid');
 
 

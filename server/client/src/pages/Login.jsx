@@ -31,7 +31,7 @@ const Login = ({ history }) => {
                 toast.error('GOOGLE SIGNIN ERROR');
             });
     };
-    
+
     //Authenticate user and redirect
     const informParent = response => {
         authenticate(response, () => {
@@ -133,7 +133,7 @@ const Login = ({ history }) => {
                     <span>Sign In</span>
                 </button>
 
-                <Link to='/users/password/forget'>
+                <Link to='/register'>
                     Forget password?
                 </Link>
             </form>

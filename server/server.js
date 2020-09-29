@@ -11,8 +11,8 @@ const app = express();
 
 //connect to database
 connectDB()
-
-app.use(bodyParser.json())
+app.use(cors());
+app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'development') {
     app.use(cors({
@@ -30,7 +30,7 @@ const authRouter = require('./routes/auth.route')
 app.use('/api/', authRouter);
 
 app.use((req, res, next) => {
-    res.status(404).json({
+    return res.status(404).json({
         success: false,
         message: "Page not founded"
     })
