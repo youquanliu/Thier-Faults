@@ -16,6 +16,36 @@ const Login = ({ history }) => {
         setFormData({ ...formData, [text]: e.target.value });
     };
 
+    //send Google token
+    const sendGoogleToken = tokenId => {
+        axios
+            .post(`${process.env.REACT_APP_API_URL}/googlelogin`, {
+                idToken: tokenId
+            })
+            .then(res => {
+                console.log(res.data);
+                informParent(res);
+            })
+            .catch(error => {
+                console.log('GOOGLE SIGNIN ERROR', error.response);
+                toast.error('GOOGLE SIGNIN ERROR');
+            });
+    };
+    
+    //Authenticate user and redirect
+    const informParent = response => {
+        authenticate(response, () => {
+            isAuth() && isAuth().role === 'admin'
+                ? history.push('/admin')
+                : history.push('/private');
+        });
+    };
+    //Get response from google
+    const responseGoogle = response => {
+        console.log(response);
+        sendGoogleToken(response.tokenId);
+    };
+
     const handleSubmit = e => {
         console.log(process.env.REACT_APP_API_URL);
         e.preventDefault();
@@ -70,6 +100,24 @@ const Login = ({ history }) => {
             <a href='/register' target='_self'>
                 <span>Sign Up</span>
             </a>
+            <GoogleLogin
+                clientId={`${process.env.REACT_APP_GOOGLE_CLIENT}`}
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+                render={renderProps => (
+                    <button
+                        onClick={renderProps.onClick}
+                        disabled={renderProps.disabled}
+                    >
+                        <div>
+                            <i className='fab fa-google ' />
+                        </div>
+                        <span>Sign In with Google</span>
+                    </button>
+                )}
+            ></GoogleLogin>
+
             <div>
                 Or sign In with e-mail
             </div>
