@@ -2,7 +2,7 @@
     background-image     : linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../assets/images/bg.jpg);
     background-size      : cover;
     background-position  : center;
-    height               : 100vh;
+    height               : 70vh;
     background-attachment: fixed;
 }
 

@@ -63,7 +63,7 @@ exports.registerController = (req, res) => {
 
         sgMail.send(emailData).then(sent => {
             return res.json({
-                message: `Email has been sent to ${email}`
+                message: `Email has been sent to ${email}, Thank you for register TheirFaults`
             })
         })
             .catch(err => {

@@ -8,7 +8,7 @@ const {
 } = require('../controllers/main');
 
 router.get('/', index); //go to main
-router.post('/', newPost);
+router.post('/add-post', newPost);
 router.get('/:id', show);
 
 module.exports = router;

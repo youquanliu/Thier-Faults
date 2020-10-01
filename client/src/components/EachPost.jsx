@@ -3,15 +3,11 @@ import React from 'react';
 
 const EachPost = (props) => {
 
-    const ToDetailPage = () => {
-        window.location.pathname = `${props.post._id}`;
-    }
+
 
     return (
         <div>
-            <button onClick={ToDetailPage}>
-                <h3>{props.post.name}</h3>
-            </button>
+
         </div>
     )
 }

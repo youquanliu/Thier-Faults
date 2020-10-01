@@ -15,13 +15,12 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000")
+      .get("http://localhost:5000/")
       .then(res => setPosts(res.data))
       .catch(err => console.log(err))
     return () => {
-
     }
-  });
+  },[]);
 
   return (
     <div>

@@ -65,6 +65,8 @@ const Register = ({ history }) => {
                         password2: ''
                     });
                     toast.success(res.data.message);
+                    toast.success("Sign Up Successfully!");
+
                 }).catch(err => {
                     toast.error(err.response.data.error);
                 })
