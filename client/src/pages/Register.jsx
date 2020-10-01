@@ -5,7 +5,7 @@ import { authenticate, isAuth } from '../helpers/auth';
 import { Link, Redirect } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
 
-const Register = () => {
+const Register = ({ history }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -14,6 +14,37 @@ const Register = () => {
     })
     const { name, email, password1, password2 } = formData
 
+
+    //send Google token
+    const sendGoogleToken = tokenId => {
+        axios
+            .post(`${process.env.REACT_APP_API_URL}/googlelogin`, {
+                idToken: tokenId
+            })
+            .then(res => {
+                console.log(res.data);
+                informParent(res);
+            })
+            .catch(error => {
+                console.log('GOOGLE SIGNIN ERROR', error.response);
+                toast.error('GOOGLE SIGNIN ERROR');
+            });
+    };
+
+    //Authenticate user and redirect
+    const informParent = response => {
+        authenticate(response, () => {
+            isAuth() && isAuth().role === 'admin'
+                ? history.push('/admin')
+                : history.push('/');
+        });
+    };
+    //Get response from google
+    const responseGoogle = response => {
+        console.log(response);
+        sendGoogleToken(response.tokenId);
+    };
+    
     const handleChange = text => e => {
         // console.log(name, email, password1, password2)
         setFormData({ ...formData, [text]: e.target.value })
@@ -72,8 +103,26 @@ const Register = () => {
                                 REGISTER
                             </button>
                         </div>
+                        <GoogleLogin
+                            clientId={`${process.env.REACT_APP_GOOGLE_CLIENT}`}
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy={'single_host_origin'}
+                            render={renderProps => (
+                                <button
+                                    onClick={renderProps.onClick}
+                                    disabled={renderProps.disabled}
+                                >
+                                    <div>
+                                        <i className='fab fa-google ' />
+                                    </div>
+                                    <span>OR Sign In with Google</span>
+                                </button>
+                            )}
+                        ></GoogleLogin>
+
                         <div>
-                            Sign in with email or Google
+                            Has an account?
                         </div>
                         <div>
                             <a href="/login">Sign In</a>
@@ -81,6 +130,8 @@ const Register = () => {
                     </form>
                 </div>
             </div>
+            <Link to='/'>Cancel</Link>
+
         </div>
     )
 }

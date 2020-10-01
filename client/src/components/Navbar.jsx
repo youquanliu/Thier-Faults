@@ -1,29 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
+import logo from '../assets/images/cake-logo.png';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <NavbarContainer>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <a className="navbar-brand" href="/#">
-                </a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="/#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-
-                <div className="collapse navbar-collapse" id="navbarColor02">
+                <Link className="navbar-brand" to="/#">
+                    <img style={{ width: "5rem" }} stc={{ logo }} alt="logo" />
+                </Link>
+                <div className="" id="navbarColor02">
                     <ul className="navbar-nav mr-auto">
                         <li className="nav-item mr-auto active">
-                            <a className="nav-link" href="/#">Home <span className="sr-only">(current)</span></a>
+                            <Link className="nav-link" to="/#">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item mr-auto ">
-                            <a className="nav-link" href="/#">New</a>
+                            <Link className="nav-link" to="/add-post">New</Link>
                         </li>
                         <li className="nav-item mr-auto ">
-                            <a className="nav-link" href="/#">Login</a>
+                            <Link className="nav-link" to="/login">Login</Link>
                         </li>
                         <li className="nav-item mr-auto ">
-                            <a className="nav-link" href="/#">Register</a>
+                            <Link className="nav-link" to="/register">Register</Link>
                         </li>
                     </ul>
                 </div>

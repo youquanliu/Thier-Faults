@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer/Footer';
 import Posts from './components/Posts/Posts';
+
 import { Route } from "react-router-dom";
 
 import "./assets/style/bootstrap.min.css";
@@ -26,7 +27,7 @@ function App() {
     <div>
       <Header />
       <Navbar />
-      <Route to='/' render={() => <Posts posts={posts} />} />
+      <Route exact path='/' render={() => <Posts posts={posts} />} />
       <Footer />
     </div>
   );

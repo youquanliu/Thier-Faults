@@ -37,7 +37,7 @@ const Login = ({ history }) => {
         authenticate(response, () => {
             isAuth() && isAuth().role === 'admin'
                 ? history.push('/admin')
-                : history.push('/private');
+                : history.push('/');
         });
     };
     //Get response from google
@@ -137,6 +137,8 @@ const Login = ({ history }) => {
                     Forget password?
                 </Link>
             </form>
+            <Link to='/'>Cancel</Link>
+
         </div>
     )
 }

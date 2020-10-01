@@ -17,14 +17,6 @@ var postSchema = new mongoose.Schema({
         },
         username: String
     },
-    createdAt: {
-        type: Date,
-        required: true
-    },
-    html: {
-        type: String,
-        required: true
-    },
     comments: [
         {
             type: mongoose.Schema.Types.ObjectId,
