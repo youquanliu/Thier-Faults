@@ -4,6 +4,7 @@ import axios from 'axios';
 import { authenticate, isAuth } from '../helpers/auth';
 import { Link, Redirect } from 'react-router-dom';
 import { GoogleLogin } from 'react-google-login';
+import styled from "styled-components";
 
 const Login = ({ history }) => {
 
@@ -90,16 +91,36 @@ const Login = ({ history }) => {
     };
 
     return (
-        <div>
+        <LoginContainer>
+
             {isAuth() ? <Redirect to='/' /> : null}
             <ToastContainer />
-            <h1>
-                Sign In for Their Faults
-            </h1>
+            <h1>Sign In</h1>
+
+            <form className="container" onSubmit={handleSubmit} >
+
+                <div className="form-group">
+                    <label className="col-form-label" htmlFor="email">Email</label>
+                    <input type="email" className="form-control" placeholder="Email to log in"
+                        value={email} onChange={handleChange('email')} />
+                </div>
+                <div className="form-group">
+                    <label className="col-form-label" htmlFor="password">Password</label>
+                    <input type="password" className="form-control" placeholder="password"
+                        value={password1} onChange={handleChange('password1')} />
+                </div>
+
+                <button type="submit" className="btn btn-primary">Submit</button>
+
+                <Link to='/register'>
+                    Forget password?
+                </Link>
+            </form>
 
             <a href='/register' target='_self'>
                 <span>Sign Up</span>
             </a>
+            <br />
             <GoogleLogin
                 clientId={`${process.env.REACT_APP_GOOGLE_CLIENT}`}
                 onSuccess={responseGoogle}
@@ -117,29 +138,17 @@ const Login = ({ history }) => {
                     </button>
                 )}
             ></GoogleLogin>
-
-            <div>
-                Or sign In with e-mail
-            </div>
-            <form onSubmit={handleSubmit} >
-                <input type='email' placeholder='Email' onChange={handleChange('email')} value={email} />
-                <input
-                    type='password'
-                    placeholder='Password'
-                    onChange={handleChange('password1')}
-                    value={password1}
-                />
-                <button type='submit' >
-                    <span>Sign In</span>
-                </button>
-
-                <Link to='/register'>
-                    Forget password?
-                </Link>
-            </form>
+            <br />
             <Link to='/'>Cancel</Link>
-
-        </div>
+        </LoginContainer>
     )
 }
 export default Login;
+
+const LoginContainer = styled.div`
+
+    margin : 3rem auto;
+    padding: 4rem;
+    width  : 31.25rem;
+
+`

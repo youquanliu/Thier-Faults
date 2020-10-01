@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './AddPost.css';
+import styled from "styled-components";
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 
@@ -40,7 +40,7 @@ const AddPost = () => {
 
     return (
 
-        <div>
+        <AddPostContainer>
             <ToastContainer />
             <form className="container" onSubmit={handleSubmit}>
                 <h1>Add New Post</h1>
@@ -68,8 +68,16 @@ const AddPost = () => {
                 <button type="submit" className="btn btn-primary">Post it</button>
 
             </form>
-        </div>
+        </AddPostContainer>
     )
 }
 
 export default AddPost
+
+const AddPostContainer = styled.div`
+
+    margin : 3rem auto;
+    padding: 4rem;
+    width  : 31.25rem;
+
+`

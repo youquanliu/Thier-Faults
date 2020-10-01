@@ -1,7 +1,6 @@
 import React from 'react';
 import './Posts.css';
 import spinner from '../../assets/images/donut-spinner.gif';
-import EachPost from '../../components/EachPost';
 
 const Posts = ({ posts }) => {
 

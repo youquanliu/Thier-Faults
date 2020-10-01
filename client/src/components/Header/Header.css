@@ -9,8 +9,13 @@
 .hero-text-box {
     position : absolute;
     width    : 1140px;
-    top      : 40%;
+    top      : 30%;
     left     : 50%;
     transform: translate(-50%, -50%);
     color    : #FFF;
+}
+
+
+.white {
+    color: #FFF
 }

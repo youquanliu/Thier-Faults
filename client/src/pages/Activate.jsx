@@ -35,7 +35,7 @@ const Activate = ({ match }) => {
                     ...formData,
                     show: false
                 });
-                toast.success(res.data.message);
+                toast.success("Account actived, now you can sign in");
             })
             .catch(err => {
                 toast.error(err.response.data.error)
@@ -51,12 +51,14 @@ const Activate = ({ match }) => {
                     <button type="submit">Astivate your account</button>
                 </form>
             </div>
+            <a href="/login">Go ahead to log In</a>
             <div>
                 Or sign up again
             </div>
             <div>
                 <a href="/register"><span>Sign Up</span></a>
             </div>
+
         </div>
     )
 }
