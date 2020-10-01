@@ -2,17 +2,20 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "server": "nodemon",
     "start": "Set NODE_ENV=production&node server",
-    "dev": "nodemon server"
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\"\"npm run client\""
   },
   "keywords": [],
-  "author": "",
+  "author": "Youquan Liu",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.2.6",
     "body-parser": "^1.19.0",
+    "concurrently": "^5.3.0",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "dotenv": "^8.2.0",

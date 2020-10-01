@@ -9,7 +9,7 @@ const EachPost = (props) => {
 
     return (
         <div>
-            <button onClick={ ToDetailPage}>
+            <button onClick={ToDetailPage}>
                 <h3>{props.post.name}</h3>
             </button>
         </div>

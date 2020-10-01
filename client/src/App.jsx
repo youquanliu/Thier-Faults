@@ -1,50 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Header from './components/Header';
+import './App.css';
+import Header from './components/Header/Header';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
+import Posts from './components/Posts/Posts';
+import { Route } from "react-router-dom";
+
 import "./assets/style/bootstrap.min.css";
-class App extends React.Component {
+function App() {
 
-  state = {
-    posts: []
-  }
+  const [posts, setPosts] = useState([]);
 
-  componentDidMount() {
-    this.getPosts();
-  }
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000")
+      .then(res => setPosts(res.data))
+      .catch(err => console.log(err))
+    return () => {
 
-  async getPosts() {
-    const res = await axios.get("http://localhost:5000");
-    console.log(res.data);
-    this.setState({
-      posts: res.data
-    })
-  }
-  renderList = () => {
-    return this.state.posts.map(post => {
-      return (
-        <div>
-          <h3>{post.name}</h3>
-        </div>
-      )
-    })
-  }
-  render() {
-    return (
-      <div>
-        <Header />
-        <Navbar />
-        <Footer />
-        <div>
-          {this.renderList()}
-        </div>
-      </div>
+    }
+  });
 
+  return (
+    <div>
+      <Header />
+      <Navbar />
+      <Route to='/' render={() => <Posts posts={posts} />} />
+      <Footer />
+    </div>
+  );
 
-
-    );
-  }
 }
 
 export default App;
