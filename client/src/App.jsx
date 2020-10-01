@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import "./assets/style/bootstrap.min.css";
 class App extends React.Component {
 
   state = {
@@ -30,10 +33,9 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="App">
-          App main page
-      </div>
-
+        <Header />
+        <Navbar />
+        <Footer />
         <div>
           {this.renderList()}
         </div>
