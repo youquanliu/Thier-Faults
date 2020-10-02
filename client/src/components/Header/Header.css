@@ -2,14 +2,14 @@
     background-image     : linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(../../assets/images/bg.jpg);
     background-size      : cover;
     background-position  : center;
-    height               : 70vh;
+    height               : 80vh;
     background-attachment: fixed;
 }
 
 .hero-text-box {
     position : absolute;
     width    : 1140px;
-    top      : 30%;
+    top      : 45%;
     left     : 50%;
     transform: translate(-50%, -50%);
     color    : #FFF;

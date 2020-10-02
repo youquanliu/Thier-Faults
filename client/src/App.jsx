@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import Header from './components/Header/Header';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer/Footer';
 import Posts from './components/Posts/Posts';
 import { Route } from "react-router-dom";
@@ -25,7 +24,7 @@ function App() {
   return (
     <div>
       <Header />
-      <Navbar />
+   
       <Route exact path='/' render={() => <Posts posts={posts} />} />
       <Footer />
     </div>

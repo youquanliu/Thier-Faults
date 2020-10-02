@@ -18,7 +18,7 @@ const Header = () => {
         <div className="background">
             <div className="hero-text-box">
                 <h2 className="white">Their Faults!</h2>
-                <h3 className="white">Gaining Weight is all their faults!</h3>
+                <br/><br/>
                 <h1>
                     <span className="typer" id="main" data-words=
                         "Ice Cream, Cheese Burger, Pizza Pizza Pizza, Fried Chicken, Bacon, Oreo, Hot Pot, T-bone Steak, BBQ BBQ BBQ "

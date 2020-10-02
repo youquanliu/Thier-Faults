@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 //use routers
-app.use('/api/', authRouter);
+app.use('/api', authRouter);
 app.use('/', mainRouter);
 
 app.use((req, res, next) => {

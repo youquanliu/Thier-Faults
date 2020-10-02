@@ -19,7 +19,7 @@ const Register = ({ history }) => {
     //send Google token
     const sendGoogleToken = tokenId => {
         axios
-            .post(`${process.env.REACT_APP_API_URL}/googlelogin`, {
+            .post('http://localhost:5000/api/googlelogin', {
                 idToken: tokenId
             })
             .then(res => {
@@ -52,10 +52,11 @@ const Register = ({ history }) => {
     }
 
     const handleSubmit = e => {
+        console.log(process.env.REACT_APP_API_URL);
         e.preventDefault()
         if (name && email && password1) {
             if (password1 === password2) {
-                axios.post(`${process.env.REACT_APP_API_URL}/register`, {
+                axios.post(`http://localhost:5000/api/register`, {
                     name, email, password: password1,
                 }).then(res => {
                     setFormData({
