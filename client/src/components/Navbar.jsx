@@ -8,7 +8,7 @@ const Navbar = () => {
         <NavbarContainer>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <Link className="navbar-brand" to="/#">
-                    <img style={{ width: "5rem" }} stc={{ logo }} alt="logo" />
+                    <img style={{ width: "5rem" }} src={{ logo }} alt="logo" />
                 </Link>
                 <div className="" id="navbarColor02">
                     <ul className="navbar-nav mr-auto">
@@ -16,7 +16,7 @@ const Navbar = () => {
                             <Link className="nav-link" to="/#">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item mr-auto ">
-                            <Link className="nav-link" to="/add-post">New</Link>
+                            <Link className="nav-link" to="/add-post">I have a story!</Link>
                         </li>
                         <li className="nav-item mr-auto ">
                             <Link className="nav-link" to="/login">Login</Link>

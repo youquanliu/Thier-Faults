@@ -5,10 +5,10 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer/Footer';
 import Posts from './components/Posts/Posts';
-
 import { Route } from "react-router-dom";
-
 import "./assets/style/bootstrap.min.css";
+
+
 function App() {
 
   const [posts, setPosts] = useState([]);
@@ -20,7 +20,7 @@ function App() {
       .catch(err => console.log(err))
     return () => {
     }
-  },[]);
+  }, []);
 
   return (
     <div>

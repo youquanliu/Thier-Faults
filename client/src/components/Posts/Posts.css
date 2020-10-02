@@ -1,5 +1,6 @@
 .post {
     min-height: 100vh;
+    background-color       : #F8F9FA;
 }
 
 .posts-container {
@@ -18,7 +19,7 @@
 .itemBox {
     position       : relative;
     width          : 30%;
-    height         : 300px;
+    height         : 16rem;
     margin         : 0 10px 20px 10px;
     background     : #000;
     transform-style: preserve-3d;

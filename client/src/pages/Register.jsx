@@ -104,7 +104,7 @@ const Register = ({ history }) => {
                                 <input type="password" className="form-control" placeholder="Confirm Password"
                                     value={password2} onChange={handleChange('password2')} />
                             </div>
-         
+
                             <button type="submit" className="btn btn-primary">Submit</button>
 
                         </div>
@@ -127,7 +127,7 @@ const Register = ({ history }) => {
                         ></GoogleLogin>
 
                         <div>
-                            Has an account? 
+                            Has an account?
                             <a href="/login">Sign In</a>
                         </div>
                     </form>

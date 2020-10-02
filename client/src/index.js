@@ -6,8 +6,9 @@ import App from './App.jsx';
 import Register from './pages/Register.jsx';
 import Activate from './pages/Activate.jsx';
 import Login from './pages/Login.jsx';
-import AddPost from './pages/AddPost/AddPost';
+import AddPost from './pages/AddPost';
 import DetailPage from './pages/DetailPage';
+import UpdatePost from './pages/UpdatePost';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -20,6 +21,8 @@ ReactDOM.render(
       <Route path='/login' exact render={props => <Login {...props} />} />
       <Route path='/users/activate/:token' exact render={props => <Activate {...props} />} />
       <Route exact path='/add-post' render={props => <AddPost {...props} />} />
+      <Route exact path='/update/:id' render={props => <UpdatePost {...props} />} />
+
       <Route exact path='/:id' render={props => <DetailPage {...props} />} />
 
     </Switch>

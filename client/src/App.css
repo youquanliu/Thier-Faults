@@ -13,4 +13,6 @@ body {
     font-size       : 22px;
     text-rendering  : optimizeLegibility;
     overflow-x      : hidden;
+    background-color: #F8F9FA;
+
 }

@@ -60,11 +60,7 @@ const AddPost = () => {
                     <textarea className="form-control" placeholder="description" rows="3" spellCheck="false"
                         value={description} onChange={handleChange('description')}></textarea>
                 </div>
-                {/* <div className="form-group">
-      <label htmlFor="exampleInputFile">File input</label>
-      <input type="file" className="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-      <small id="fileHelp" className="form-text text-muted">This is some placeholder block-level help text htmlFor the above input. It's a bit lighter and easily wraps to a new line.</small>
-    </div> */}
+
                 <button type="submit" className="btn btn-primary">Post it</button>
 
             </form>
